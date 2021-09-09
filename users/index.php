@@ -29,7 +29,7 @@ if ($result->rowCount() > 0) {
     ?>
       <div class="col-12 col-sm-2 col-md-2">
         <div class="card">
-          <a href="/library_management/users/#">
+          <a href="/library_management/users/show.php?id=<?= $row['id'] ?>">
             <img src="<?= $row['avatar']; ?>" alt="" class="card-img-top">
           </a>
 
