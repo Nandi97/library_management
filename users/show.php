@@ -41,13 +41,7 @@ if (isset($_GET['id'])) {
           <a href="/library_management/users/update.php?id=<?= $id; ?>" class="btn btn-sm btn-outline-dark">
             <i class="bi bi-pencil-square"></i>
           </a>
-        </div>
-
-        <div class="btn-group me-2">
-          <button type="button" class="btn btn-sm btn-success">
-            <i class="bi bi-journal-plus"></i>
-          </button>
-          <button type="button" class="btn btn-sm btn-danger">
+          <button type="button" class="btn btn-sm btn-outline-danger">
             <i class="bi bi-trash"></i>
           </button>
         </div>
@@ -61,32 +55,19 @@ if (isset($_GET['id'])) {
         </div>
       </div>
       <div class="col-12 col-md-8">
-        <table class="table table-borderless table-striped">
-          <tr>
-            <td><b>Name</b></td>
-            <td><b>Phone Number</b></td>
-            
-
-          </tr>
+        <table class="table table-borderless">
 
           <tr>
-            <td><?= $name; ?></td>
-            <td><?= $phoneNo; ?></td>
-            
-          </tr>
-
-          <tr>
-            <td colspan="3"><b>Address</b></td>
-          </tr>
-
-          <tr>
-            <td colspan="3"><?= $address; ?></td>
-          </tr>
-          <tr>
-            <td colspan="3"><b>Role</b></td>
-          </tr>
-          <tr>
-          <td colspan="3">
+            <td>
+              <i class="bi bi-person-circle text-primary"></i>
+              <?= $name; ?>
+            </td>
+            <td>
+              <i class="bi bi-telephone text-primary"></i>
+              <?= $phoneNo; ?>
+            </td>
+            <td>
+              <i class="bi bi-person-bounding-box text-primary"></i>
               <?php
               $sql1 = "SELECT * FROM roles WHERE id = " . $row['roleId'];
               $result1 = $db->query($sql1);
@@ -99,7 +80,14 @@ if (isset($_GET['id'])) {
               }
               ?>
             </td>
-            </tr>
+          </tr>
+
+          <tr>
+            <td colspan="3">
+              <i class="bi bi-geo-alt text-primary" ></i>
+              <?= $address; ?>
+            </td>
+          </tr>
         </table>
       </div>
     </div>

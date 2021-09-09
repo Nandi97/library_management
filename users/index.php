@@ -52,11 +52,11 @@ if ($result->rowCount() > 0) {
                   ?>
                 </div>
 
-                <div class="col text-end">
+                <!--div class="col text-end">
                   <a href="/library_management/users/update.php?id=<?= $row['id'] ?>">
                     <i class="bi bi-pencil-square"></i>
                   </a>
-                </div>
+                </-div-->
               </div>
             </div>
           </div>
