@@ -21,7 +21,7 @@ if ($result->rowCount() > 0) {
     ?>
       <div class="col-6 col-sm-3 col-md-2">
         <div class="card">
-          <a href="/library_management/books/#">
+          <a href="/library_management/books/show.php?id=<?= $row['id'] ?>">
             <img src="<?= $row['cover']; ?>" alt="" class="card-img-top">
           </a>
 
@@ -29,17 +29,7 @@ if ($result->rowCount() > 0) {
             <div class="fw-bold"><?= $row['title']; ?></div>
 
             <div class="fw-light">
-              <div class="row">
-                <div class="col-9">
-                  <?= $row['author']; ?>
-                </div>
-
-                <div class="col-3">
-                  <a href="/library_management/books/update.php?id=<?= $row['id'] ?>">
-                    <i class="bi bi-pencil-square"></i>
-                  </a>
-                </div>
-              </div>
+              <?= $row['author']; ?>
             </div>
           </div>
         </div>

@@ -1,34 +1,4 @@
-<?php
-// Create empty form variables
-$title = '';
-$author = '';
-$publishDate = '';
-$description = '';
-$cover = '';
 
-// Check if this is an update request
-if (isset($_GET['id'])) {
-  // Get the book id passed with the update request
-  $id = $_GET['id'];
-
-  // Fetch the book details from the DB with the passed id ($_GET['id'])
-  $sql = "SELECT * FROM books WHERE id = " . $id;
-  $result = $db->query($sql);
-
-  // If the book exists in the DB, update the form variables
-  if ($result->rowCount() > 0) {
-    $row = $result->fetch();
-
-    $title = $row['title'];
-    $author = $row['author'];
-    $publishDate = $row['publishDate'];
-    $description = $row['description'];
-    $cover = $row['cover'];
-  }
-
-  echo '<input type="hidden" name="id" id="id" value="' . $id . '">';
-}
-?>
 
 <div>
   <div class="row">
