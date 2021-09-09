@@ -1,0 +1,1 @@
+<?php header('Location: /library_management/dashboard'); ?>
