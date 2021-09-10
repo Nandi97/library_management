@@ -1,6 +1,24 @@
 <?php include('../layouts/header.php') ?>
 
 <?php
+// Create empty form variables
+$name = '';
+$phoneNo = '';
+$address = '';
+$roleId = '';
+$avatar = '';
+$btnText = 'Create';
+?>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Create a User</h1>
+</div>
+
+<form action="create.php" method="post">
+  <?php include('form.php') ?>
+</form>
+
+<?php
 
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
@@ -21,13 +39,5 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
-
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Create a User</h1>
-</div>
-
-<form action="create.php" method="post">
-  <?php include('form.php') ?>
-</form>
 
 <?php include('../layouts/footer.php') ?>

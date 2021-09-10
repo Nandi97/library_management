@@ -50,45 +50,46 @@ if (isset($_GET['id'])) {
 
     <div class="row">
       <div class="col-12 col-md-4">
-        <div class="card">
+        <div class="card mb-3">
           <img src="<?= $avatar; ?>" alt="Cover Image" class="card-img-top">
         </div>
       </div>
       <div class="col-12 col-md-8">
-        <table class="table table-borderless">
-
-          <tr>
-            <td>
-              <i class="bi bi-person-circle text-primary"></i>
-              <?= $name; ?>
-            </td>
-            <td>
-              <i class="bi bi-telephone text-primary"></i>
-              <?= $phoneNo; ?>
-            </td>
-            <td>
-              <i class="bi bi-person-bounding-box text-primary"></i>
-              <?php
-              $sql1 = "SELECT * FROM roles WHERE id = " . $row['roleId'];
-              $result1 = $db->query($sql1);
-              if ($result1->rowCount() > 0) {
-                while ($row1 = $result1->fetch()) {
-                  echo $row1['name'];
+        <div class="card pb-0">
+          <table class="table mb-0">
+            <tr>
+              <td>
+                <i class="bi bi-person-circle text-primary"></i>
+                <?= $name; ?>
+              </td>
+              <td>
+                <i class="bi bi-telephone text-primary"></i>
+                <?= $phoneNo; ?>
+              </td>
+              <td>
+                <i class="bi bi-person-bounding-box text-primary"></i>
+                <?php
+                $sql1 = "SELECT * FROM roles WHERE id = " . $row['roleId'];
+                $result1 = $db->query($sql1);
+                if ($result1->rowCount() > 0) {
+                  while ($row1 = $result1->fetch()) {
+                    echo $row1['name'];
+                  }
+                  // Free result set
+                  unset($result1);
                 }
-                // Free result set
-                unset($result1);
-              }
-              ?>
-            </td>
-          </tr>
+                ?>
+              </td>
+            </tr>
 
-          <tr>
-            <td colspan="3">
-              <i class="bi bi-geo-alt text-primary" ></i>
-              <?= $address; ?>
-            </td>
-          </tr>
-        </table>
+            <tr>
+              <td colspan="3">
+                <i class="bi bi-geo-alt text-primary"></i>
+                <?= $address; ?>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   <?php
