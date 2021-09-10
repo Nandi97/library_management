@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
   $cover = $_POST['cover'];
   $publishDate = $_POST['publishDate'];
 
-  $sql = "INSERT INTO BOOKS ( title, author,description,cover,publishDate) VALUES(?,?,?,?,?)";
+  $sql = "INSERT INTO books (title, author, description, cover, publishDate) VALUES(?,?,?,?,?)";
   $stmtInsert = $db->prepare($sql);
   $result = $stmtInsert->execute([$title, $author, $description, $cover, $publishDate]);
 

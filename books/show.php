@@ -45,7 +45,7 @@ if (isset($_GET['id'])) {
 
         <div class="btn-group me-2">
 
-          <a href="/library_management/books/lend.php" class="btn btn-sm btn-outline-success">
+          <a href="/library_management/books/lend.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-success">
             <i class="bi bi-journal-plus"></i>
           </a>
           <button type="button" class="btn btn-sm btn-danger">
