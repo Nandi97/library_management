@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
   $name = $_POST['name'];
   $phoneNo = $_POST['phoneNo'];
   $address = $_POST['address'];
-  $roleId = $_POST['roles'];
+  $roleId = $_POST['roleId'];
 
   // Prepare SQL Update statement
   $sql = "UPDATE users SET name = ?, phoneNo = ?, address = ?,  roleId = ? WHERE id = " . $id;

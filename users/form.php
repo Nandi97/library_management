@@ -2,7 +2,7 @@
   <div class="col">
     <div class="form-floating mb-3">
       <input type="text" name="name" id="name" class="form-control" placeholder="Role Name" value="<?= $name; ?>" required>
-      <label for="name" class="form-label">Full Name</label>
+      <label for="name" class="form-label" >Full Name</label>
     </div>
   </div>
 
@@ -31,27 +31,17 @@
         $result = $db->query($sql);
 
         if ($result->rowCount() > 0) {
-          
           while ($row = $result->fetch()) {
-
-            if ($roleId === $row['id']) {
         ?>
-              <option selected value="<?= $row['id']; ?>">
-              <?php
-            } else {
-              ?>
-              <option value="<?= $row['id']; ?>">
-              <?php
-            }
-              ?>
+            <option <?= $roleId === $row['id'] ? 'selected' : ''; ?> value='<?= $row['id']; ?>'>
               <?= $row['name']; ?>
-              </option>
-          <?php
+            </option>
+        <?php
           }
           // Free result set
           unset($result);
         }
-          ?>
+        ?>
       </select>
 
       <label for="roleId" class="form-label">Role</label>
