@@ -44,9 +44,10 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="btn-group me-2">
-          <button type="button" class="btn btn-sm btn-success">
+
+          <a href="/library_management/books/lend.php" class="btn btn-sm btn-outline-success">
             <i class="bi bi-journal-plus"></i>
-          </button>
+          </a>
           <button type="button" class="btn btn-sm btn-danger">
             <i class="bi bi-trash"></i>
           </button>
