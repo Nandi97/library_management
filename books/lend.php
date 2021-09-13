@@ -84,7 +84,7 @@ if (isset($_GET['id'])) {
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary" name="submit" id="submit">Lend Book</button>
+              <button type="submit" class="btn btn-primary" name="submit" id="submit1">Lend Book</button>
             </form>
           </div>
         </div>
@@ -97,7 +97,7 @@ if (isset($_GET['id'])) {
   header('Location: /library_management/books/');
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit1'])) {
   // Get the submitted form data
   $bookId = $_POST['bookId'];
   $borrowerId = $_POST['borrowerId'];
