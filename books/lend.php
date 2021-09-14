@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
   $sql = "SELECT * FROM books WHERE id = " . $id;
   $result = $db->query($sql);
 
-  //$users = null;
+  $users = null;
 
   if ($result->rowCount() > 0) {
     $row = $result->fetch();
