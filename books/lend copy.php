@@ -2,8 +2,8 @@
 
 <?php
 //create empty  variables
-$title = '';
-$cover = '';
+$title = 'Book Title';
+$cover = 'Book Cover Image';
 
 if (isset($_GET['id'])) {
   // Get the book id passed with the update request
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
   $sql = "SELECT * FROM books WHERE id = " . $id;
   $result = $db->query($sql);
 
-  $users = null;
+  //$users = null;
 
   if ($result->rowCount() > 0) {
     $row = $result->fetch();

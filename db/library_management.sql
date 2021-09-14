@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2021 at 02:09 PM
+-- Generation Time: Sep 14, 2021 at 09:34 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -112,7 +112,7 @@ INSERT INTO `users` (`id`, `name`, `phoneNo`, `address`, `roleId`, `avatar`, `cr
 (3, 'Salim Maina', '+254722662310', '14952-00800 westlands', 3, 'https://randomuser.me/api/portraits/men/59.jpg', '2021-09-07 11:26:33', '2021-09-07 11:26:33'),
 (10, 'Carys Metz', '+254700123456', 'Some place in Nai', 5, 'https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=aa3a807e1bbdfd4364d1f449eaa96d82', '2021-09-08 07:45:10', '2021-09-08 07:45:10'),
 (11, 'Patricia Wirimu', '+254701123456', 'Pangani', 2, 'https://randomuser.me/api/portraits/women/89.jpg', '2021-09-10 05:29:31', '2021-09-10 05:29:31'),
-(12, 'Kevin Mwololo', '+2540706341846', 'Langata', 5, 'https://randomuser.me/api/portraits/men/80.jpg', '2021-09-10 05:32:45', '2021-09-10 05:32:45');
+(12, 'Delvin Cravitz', '+2540706341846', 'Langata', 5, 'https://randomuser.me/api/portraits/men/80.jpg', '2021-09-10 05:32:45', '2021-09-10 05:32:45');
 
 --
 -- Indexes for dumped tables
