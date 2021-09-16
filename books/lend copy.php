@@ -91,54 +91,32 @@ if (isset($_GET['id'])) {
       </div>
     </div>
 <?php
-
-  }
-  if (isset($_POST['submit1'])) {
-    // Get the submitted form data
-    $bookId = $_POST['bookId'];
-    $borrowerId = $_POST['borrowerId'];
-    $librarianId = $_POST['librarianId'];
-
-    // Prepare SQL Update statement
-    $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
-    $stmtInsert = $db->prepare($sql);
-    $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
-
-    // Inform the user if the SQl operation was successful or not
-    if ($result) {
-      echo 'Saved.';
-      // Since it was a success, redirect the user to the roles index page
-      // header('Location: /library_management/books/show.php?id=' . $bookId);
-    } else {
-      echo 'error';
-    }
   }
 } else {
-  if (isset($_POST['submit1'])) {
-    // Get the submitted form data
-    $bookId = $_POST['bookId'];
-    $borrowerId = $_POST['borrowerId'];
-    $librarianId = $_POST['librarianId'];
-
-    // Prepare SQL Update statement
-    $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
-    $stmtInsert = $db->prepare($sql);
-    $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
-
-    // Inform the user if the SQl operation was successful or not
-    if ($result) {
-      echo 'Saved.';
-      // Since it was a success, redirect the user to the roles index page
-      // header('Location: /library_management/books/show.php?id=' . $bookId);
-    } else {
-      echo 'error';
-    }
-  }
   // Redirect back to the books index.php since the action is invalid
   header('Location: /library_management/books/');
 }
 
+if (isset($_POST['submit1'])) {
+  // Get the submitted form data
+  $bookId = $_POST['bookId'];
+  $borrowerId = $_POST['borrowerId'];
+  $librarianId = $_POST['librarianId'];
 
+  // Prepare SQL Update statement
+  $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
+  $stmtInsert = $db->prepare($sql);
+  $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
+
+  // Inform the user if the SQl operation was successful or not
+  if ($result) {
+    echo 'Saved.';
+    // Since it was a success, redirect the user to the roles index page
+    // header('Location: /library_management/books/show.php?id=' . $bookId);
+  } else {
+    echo 'error';
+  }
+}
 ?>
 
 <?php include('../layouts/footer.php') ?>
