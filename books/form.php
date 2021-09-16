@@ -15,8 +15,11 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <div class="form-floating mb-3">
-        <input type="date" name="publishDate" id="publishDate" class="form-control" placeholder="Publish Date" value="<?= $publishDate; ?>" required>
+      <div class="form-floating mb-3" data-provide="datepicker">
+        <input data-provide="datepicker" type="date" name="publishDate" id="publishDate" class="form-control" placeholder="Publish Date" value="<?= $publishDate; ?>" required>
+        <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
         <label for="publishDate" class="form-label">Books Publish Date</label>
       </div>
     </div>

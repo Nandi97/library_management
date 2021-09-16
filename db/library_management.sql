@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2021 at 09:34 AM
+-- Generation Time: Sep 16, 2021 at 08:51 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -45,7 +45,8 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`id`, `title`, `author`, `description`, `cover`, `publishDate`, `createdAt`, `updatedAt`) VALUES
 (1, 'Where the Crawdads Sing', ' Delia Owens', 'Where the Crawdads Sing is a 2018 novel by American author Delia Owens. It has topped The New York Times Fiction Best Sellers of 2019 and The New York Times Fiction Best Sellers of 2020 for a combined 32 non-consecutive weeks. As of late January 2021, the', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7VvrmHmwlH_984mE_ylF6cc5BVNiPtl7NDrMRxyzRYVCWO8Z', '2018-08-14', '2021-09-08 09:48:22', '2021-09-08 09:48:22'),
 (2, 'Atomic Habits', 'James Clear', 'The #1 New York Times bestseller. Over 2 million copies sold! Tiny Changes, Remarkable Results No matter your goals, Atomic Habits offers a proven framework for improving--every day.', 'https://images-na.ssl-images-amazon.com/images/I/81iAADNy2NL.jpg', '2018-10-16', '2021-09-08 10:42:09', '2021-09-08 10:42:09'),
-(3, 'It Ends with Us: A Novel', 'Colleen Hoover', 'In this “brave and heartbreaking novel that digs its claws into you and doesn’t let go, long after you’ve finished it” ', 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470427482l/27362503._SY475_.jpg', '2016-08-02', '2021-09-13 11:57:23', '2021-09-13 11:57:23');
+(3, 'It Ends with Us: A Novel', 'Colleen Hoover', 'In this “brave and heartbreaking novel that digs its claws into you and doesn’t let go, long after you’ve finished it” ', 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470427482l/27362503._SY475_.jpg', '2016-08-02', '2021-09-13 11:57:23', '2021-09-13 11:57:23'),
+(4, 'The Midnight Library: A Novel', 'Matt Haig', '“Let\'s be kind to the people in our own existence.” The Midnight Library is a book about choices, regrets, and embracing life.', 'https://m.media-amazon.com/images/I/71aiTCR69YS.jpg', '2020-08-13', '2021-09-16 06:49:12', '2021-09-16 06:49:12');
 
 -- --------------------------------------------------------
 
@@ -150,7 +151,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `borrowing`
