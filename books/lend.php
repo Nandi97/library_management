@@ -108,12 +108,17 @@ if (isset($_POST['lendBook'])) {
   // echo ("console.log('Librarian ID: " . $librarianId . "')");
 
   // Prepare SQL Update statement
-  $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
-  $stmtInsert = $db->prepare($sql);
-  $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
+  $sql3 = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
+  $stmtInsert = $db->prepare($sql3);
+  $result3 = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
+
+  // Update the book details too
+  $sql4 = "UPDATE books SET borrowed = 1 WHERE id = " . $bookId;
+  $stmtUpdate = $db->prepare($sql4);
+  $result4 = $stmtUpdate->execute();
 
   // Inform the user if the SQl operation was successful or not
-  if ($result) {
+  if ($result3 && $result4) {
     // echo 'Saved.';
     // Since it was a success, redirect the user to the roles index page
     header('Location: /library_management/books/show.php?id=' . $bookId);

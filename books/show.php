@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
     $publishDate = $row['publishDate'];
     $description = $row['description'];
     $cover = $row['cover'];
+    $borrowed = $row['borrowed'];
 ?>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2"><?= $title; ?></h1>
@@ -44,10 +45,21 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="btn-group me-2">
-
-          <a href="/library_management/books/lend.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-success">
-            <i class="bi bi-journal-plus"></i>
-          </a>
+          <?php
+          if ($borrowed == 0) {
+          ?>
+            <a href="/library_management/books/lend.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-journal-plus"></i>
+            </a>
+          <?php
+          } else {
+          ?>
+            <a href="/library_management/books/return.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-success">
+              <i class="bi bi-journal-arrow-up"></i>
+            </a>
+          <?php
+          }
+          ?>
           <button type="button" class="btn btn-sm btn-danger">
             <i class="bi bi-trash"></i>
           </button>
