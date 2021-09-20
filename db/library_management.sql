@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2021 at 08:51 AM
+-- Generation Time: Sep 20, 2021 at 11:43 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -63,6 +63,14 @@ CREATE TABLE `borrowing` (
   `returnedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `borrowing`
+--
+
+INSERT INTO `borrowing` (`id`, `bookId`, `borrowerId`, `librarianId`, `borrowedAt`, `returnedAt`) VALUES
+(7, 1, 1, 2, '2021-09-20 09:25:29', '2021-09-20 09:25:29'),
+(8, 4, 11, 3, '2021-09-20 09:33:50', '2021-09-20 09:33:50');
+
 -- --------------------------------------------------------
 
 --
@@ -112,7 +120,7 @@ INSERT INTO `users` (`id`, `name`, `phoneNo`, `address`, `roleId`, `avatar`, `cr
 (2, 'Sandra Olembo', '+254722885561', '14952-00800 westlands', 5, 'https://uifaces.co/our-content/donated/XdLjsJX_.jpg', '2021-09-07 11:21:38', '2021-09-07 11:21:38'),
 (3, 'Salim Maina', '+254722662310', '14952-00800 westlands', 3, 'https://randomuser.me/api/portraits/men/59.jpg', '2021-09-07 11:26:33', '2021-09-07 11:26:33'),
 (10, 'Carys Metz', '+254700123456', 'Some place in Nai', 5, 'https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=aa3a807e1bbdfd4364d1f449eaa96d82', '2021-09-08 07:45:10', '2021-09-08 07:45:10'),
-(11, 'Patricia Wirimu', '+254701123456', 'Pangani', 2, 'https://randomuser.me/api/portraits/women/89.jpg', '2021-09-10 05:29:31', '2021-09-10 05:29:31'),
+(11, 'Patricia Wairimu', '+254701123456', 'Pangani', 2, 'https://randomuser.me/api/portraits/women/89.jpg', '2021-09-10 05:29:31', '2021-09-10 05:29:31'),
 (12, 'Delvin Cravitz', '+2540706341846', 'Langata', 5, 'https://randomuser.me/api/portraits/men/80.jpg', '2021-09-10 05:32:45', '2021-09-10 05:32:45');
 
 --
@@ -157,7 +165,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `borrowing`
 --
 ALTER TABLE `borrowing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`

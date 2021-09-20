@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
       <div class="col-12 col-md-8">
         <div class="card">
           <div class="card-body">
-            <form action="lend.php" method="POST">
+            <form action="lend.php" method="POST" role="form" target="_blank">
               <legend>Borrow Form</legend>
 
               <input type="hidden" name="bookId" id="bookId" value="<?= $id; ?>">
@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <label for="librarianId" class="form-label">Lender</label>
-                    <select name="librarianId" id="librarianId" class="form-select" >
+                    <select name="librarianId" id="librarianId" class="form-select">
                       <option>Select Lender</option>
                       <?php
                       if ($result1->rowCount() > 0) {
@@ -103,6 +103,10 @@ if (isset($_POST['lendBook'])) {
   $borrowerId = $_POST['borrowerId'];
   $librarianId = $_POST['librarianId'];
 
+  // echo ("console.log('Book ID: " . $bookId . "')");
+  // echo ("console.log('Borrower ID: " . $borrowerId . "')");
+  // echo ("console.log('Librarian ID: " . $librarianId . "')");
+
   // Prepare SQL Update statement
   $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
   $stmtInsert = $db->prepare($sql);
@@ -110,7 +114,7 @@ if (isset($_POST['lendBook'])) {
 
   // Inform the user if the SQl operation was successful or not
   if ($result) {
-    echo 'Saved.';
+    // echo 'Saved.';
     // Since it was a success, redirect the user to the roles index page
     header('Location: /library_management/books/show.php?id=' . $bookId);
   } else {

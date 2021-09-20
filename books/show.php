@@ -81,11 +81,54 @@ if (isset($_GET['id'])) {
             <td colspan="2"><?= $description; ?></td>
           </tr>
         </table>
+
+        <?php
+        // Fetch the borrowing details from the DB with the passed book id ($_GET['id'])
+        $sql1 = "SELECT * FROM borrowing WHERE bookId = " . $row['id'];
+        $result1 = $db->query($sql1);
+
+        // If the book has previously been borrowed
+        if ($result1->rowCount() > 0) {
+        ?>
+          <table class="table table-bordered">
+            <tbody>
+              <tr class="table-success">
+                <td><b>Borrower</b></td>
+                <td><b>Borrowed on</b></td>
+                <td><b>Returned on</b></td>
+              </tr>
+
+              <?php
+              while ($row1 = $result1->fetch()) {
+                // Fetch the borrower's details from the DB
+                $sql2 = "SELECT * FROM users WHERE id = " . $row1['borrowerId'];
+                $result2 = $db->query($sql2);
+
+                $user = null;
+
+                // If the borrower exists in the DB
+                if ($result2->rowCount() > 0) {
+                  $user = $result2->fetch();
+                }
+              ?>
+                <tr>
+                  <td><?= $user['name']; ?></td>
+                  <td><?= date("M j, Y H:i A", strtotime($row1['borrowedAt'])); ?></td>
+                  <td><?= date("M j, Y H:i A", strtotime($row1['returnedAt'])); ?></td>
+                </tr>
+              <?php
+              }
+              ?>
+
+            </tbody>
+          </table>
+        <?php
+        }
+        ?>
       </div>
     </div>
   <?php
   } else {
-
   ?>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Book does not exist!</h1>
