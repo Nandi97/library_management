@@ -1,7 +1,7 @@
 <?php include('../layouts/header.php') ?>
 
 <?php
-//create empty  variables
+//create empty variables
 $title = 'Book Title';
 $cover = 'Book Cover Image';
 
@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
       <div class="col-12 col-md-8">
         <div class="card">
           <div class="card-body">
-            <form action="lend.php" method="post">
+            <form action="lend.php" method="POST">
               <legend>Borrow Form</legend>
 
               <input type="hidden" name="bookId" id="bookId" value="<?= $id; ?>">
@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <label for="librarianId" class="form-label">Lender</label>
-                    <select id="librarianId" class="form-select">
+                    <select name="librarianId" id="librarianId" class="form-select" >
                       <option>Select Lender</option>
                       <?php
                       if ($result1->rowCount() > 0) {
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
                   </div>
                   <div class="col-12 col-sm-6">
                     <label for="borrowerId" class="form-label">Borrower</label>
-                    <select id="borrowerId" class="form-select">
+                    <select name="borrowerId" id="borrowerId" class="form-select">
                       <option>Select Borrower</option>
                       <?php
                       if ($result2->rowCount() > 0) {
@@ -84,61 +84,39 @@ if (isset($_GET['id'])) {
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary" name="submit" id="submit1">Lend Book</button>
+              <button type="submit" class="btn btn-primary" name="lendBook" id="lendBook">Lend Book</button>
+              <a href="/library_management/books/show.php?id=<?= $id ?>" class="btn btn-secondary">
+                Cancel
+              </a>
             </form>
           </div>
         </div>
       </div>
     </div>
 <?php
-
   }
-  if (isset($_POST['submit1'])) {
-    // Get the submitted form data
-    $bookId = $_POST['bookId'];
-    $borrowerId = $_POST['borrowerId'];
-    $librarianId = $_POST['librarianId'];
-
-    // Prepare SQL Update statement
-    $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
-    $stmtInsert = $db->prepare($sql);
-    $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
-
-    // Inform the user if the SQl operation was successful or not
-    if ($result) {
-      echo 'Saved.';
-      // Since it was a success, redirect the user to the roles index page
-      // header('Location: /library_management/books/show.php?id=' . $bookId);
-    } else {
-      echo 'error';
-    }
-  }
-} else {
-  if (isset($_POST['submit1'])) {
-    // Get the submitted form data
-    $bookId = $_POST['bookId'];
-    $borrowerId = $_POST['borrowerId'];
-    $librarianId = $_POST['librarianId'];
-
-    // Prepare SQL Update statement
-    $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
-    $stmtInsert = $db->prepare($sql);
-    $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
-
-    // Inform the user if the SQl operation was successful or not
-    if ($result) {
-      echo 'Saved.';
-      // Since it was a success, redirect the user to the roles index page
-      // header('Location: /library_management/books/show.php?id=' . $bookId);
-    } else {
-      echo 'error';
-    }
-  }
-  // Redirect back to the books index.php since the action is invalid
-  header('Location: /library_management/books/');
 }
 
+if (isset($_POST['lendBook'])) {
+  // Get the submitted form data
+  $bookId = $_POST['bookId'];
+  $borrowerId = $_POST['borrowerId'];
+  $librarianId = $_POST['librarianId'];
 
+  // Prepare SQL Update statement
+  $sql = "INSERT INTO borrowing (bookId, borrowerId, librarianId) VALUES(?,?,?)";
+  $stmtInsert = $db->prepare($sql);
+  $result = $stmtInsert->execute([$bookId, $borrowerId, $librarianId]);
+
+  // Inform the user if the SQl operation was successful or not
+  if ($result) {
+    echo 'Saved.';
+    // Since it was a success, redirect the user to the roles index page
+    header('Location: /library_management/books/show.php?id=' . $bookId);
+  } else {
+    echo 'error';
+  }
+}
 ?>
 
 <?php include('../layouts/footer.php') ?>
